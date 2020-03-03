@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Colour Generator</title>
+
+        <script type = "text/javascript">
+            //Function for setting rgb value directly
+            function setFromValue() {
+                var r = document.getElementById('r').value;
+                var g = document.getElementById('g').value;
+                var b = document.getElementById('b').value;
+
+                var rgbColour = 'rgb('+ r +', '+ g +', '+ b +')';
+                document.getElementById('colourPatch').style.backgroundColor = rgbColour;
+            }
+
+            //Function for setting a random rgb value
+            function setRandom() {
+                var r = Math.floor(Math.random() * 255);
+                var g = Math.floor(Math.random() * 255);
+                var b = Math.floor(Math.random() * 255);
+
+                document.getElementById('r').value = r;
+                document.getElementById('g').value = g;
+                document.getElementById('b').value = b;
+
+                var rgbColour = 'rgb('+ r + ',' + g + ',' + b + ')'; 
+                document.getElementById('colourPatch').style.backgroundColor = rgbColour;
+            }
+        </script>
+
+        <style type = "text/css">
+            #colourPatch {
+                border: 2px solid black;
+                width: 300px;
+                height: 300px;
+            }
+        </style>
+    </head>
+
+    <body onload = "setRandom();">
+        <h1>Colour Generator</h1>
+        <div id = "colourPatch"></div>
+        <label for ="r">Red Value (0-255)</label>
+        <input type = "text" id = "r" size = "3" value = "0" /><br>
+
+        <label for ="g">Green Value (0-255)</label>
+        <input type = "text" id = "g" size = "3" value = "0" /><br>
+
+        <label for ="b">Blue Value (0-255)</label>
+        <input type = "text" id = "b" size = "3" value = "0" /><br>
+
+        <!--Functions to be declared-->
+        <button onclick = "setFromValue();">Set Colour from Value</button><br>
+        <button onclick = "setRandom();">Set a Random Colour Value</button>
+    </body>
+</html>
